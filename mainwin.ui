@@ -1,0 +1,1394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWin</class>
+ <widget class="QMainWindow" name="MainWin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1116</width>
+    <height>723</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWin</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_15">
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>2</number>
+    </property>
+    <property name="bottomMargin">
+     <number>2</number>
+    </property>
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="ALLTW">
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+QTabBar::tab{width:200}
+QTabBar::tab{height:80}
+
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>详细信息</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QTabWidget" name="DetailTW">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QTabBar::tab{width:180}
+
+QTabBar::tab{height:40}
+border-color: rgb(115, 57, 46);</string>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_1">
+           <attribute name="title">
+            <string>电能表基本信息</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <property name="leftMargin">
+             <number>2</number>
+            </property>
+            <property name="topMargin">
+             <number>2</number>
+            </property>
+            <property name="rightMargin">
+             <number>2</number>
+            </property>
+            <property name="bottomMargin">
+             <number>2</number>
+            </property>
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QTableWidget" name="BaseInfo">
+              <property name="minimumSize">
+               <size>
+                <width>1001</width>
+                <height>481</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <column>
+               <property name="text">
+                <string>主键</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>设备ID</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>条形码</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>设备名称</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>检定任务单编号</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>子任务编号</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>设备专业</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>设备大类</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>设备小类</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>制造单位</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>出厂编号</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>型号</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>规格</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>准确度等级</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>证书编号</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>电压测量范围</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>电流测量范围</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>指标项24</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>指标项25</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>检定依据</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab2">
+       <attribute name="title">
+        <string>任务信息</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_14">
+        <item row="0" column="0">
+         <widget class="QListWidget" name="listWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <item>
+           <property name="text">
+            <string>条形码</string>
+           </property>
+           <property name="foreground">
+            <brush brushstyle="NoBrush">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>0</blue>
+             </color>
+            </brush>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QFrame" name="frame_3">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="1" column="1">
+              <widget class="QPushButton" name="ClearBT">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+               </property>
+               <property name="text">
+                <string>清空表</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QPushButton" name="UpLoadBT">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+               </property>
+               <property name="text">
+                <string>上传MDS</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTabWidget" name="error_table">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>10</pointsize>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTabBar::tab{width:180}
+
+QTabBar::tab{height:40}
+background-color: qlineargradient(spread:pad, x1:0.03125, y1:1, x2:0, y2:0, stop:0 rgba(37, 44, 106, 255), stop:1 rgba(255, 255, 255, 255));</string>
+            </property>
+            <property name="tabPosition">
+             <enum>QTabWidget::North</enum>
+            </property>
+            <property name="tabShape">
+             <enum>QTabWidget::Rounded</enum>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>16</width>
+              <height>16</height>
+             </size>
+            </property>
+            <property name="elideMode">
+             <enum>Qt::ElideRight</enum>
+            </property>
+            <widget class="QWidget" name="tab_4">
+             <attribute name="title">
+              <string>电能表误差信息1</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout_7" rowstretch="0" columnstretch="0">
+              <property name="leftMargin">
+               <number>2</number>
+              </property>
+              <property name="topMargin">
+               <number>2</number>
+              </property>
+              <property name="rightMargin">
+               <number>2</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QTableWidget" name="error_Info1">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>主键</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备ID</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>条形码</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备名称</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定单编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备专业</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备大类</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备小类</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>试验项ID</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>试验项名称</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>试验分组</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>系统编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定线/台体编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定单元编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>表位编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定/校准日期</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定点的序号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>数据来源</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>数据类型</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>温度</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>相对湿度</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项2</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项3</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项4</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项5</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项6</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项7</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项8</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项9</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项10</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项11</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项12</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项13</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定结论</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>写入时间</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>处理标记</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>处理时间</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tab_7">
+             <attribute name="title">
+              <string>电能表误差信息2</string>
+             </attribute>
+             <layout class="QGridLayout" name="gridLayout" rowstretch="0" columnstretch="0">
+              <property name="leftMargin">
+               <number>2</number>
+              </property>
+              <property name="topMargin">
+               <number>2</number>
+              </property>
+              <property name="rightMargin">
+               <number>2</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <property name="spacing">
+               <number>2</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QTableWidget" name="error_Info2">
+                <property name="font">
+                 <font>
+                  <pointsize>10</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <column>
+                 <property name="text">
+                  <string>主键</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备ID</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>条形码</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备名称</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定单编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备专业</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备大类</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>设备小类</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>试验项ID</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>试验项名称</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>试验分组</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>系统编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定线/台体编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定单元编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>表位编号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定/校准日期</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定点的序号</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>数据来源</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>数据类型</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>温度</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>相对湿度</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>指标项1</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>检定结论</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>写入时间</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>处理标记</string>
+                 </property>
+                </column>
+                <column>
+                 <property name="text">
+                  <string>处理时间</string>
+                 </property>
+                </column>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Web更新</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_13">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_2">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="1">
+            <widget class="QPushButton" name="ClearTable">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+             </property>
+             <property name="text">
+              <string>清空表</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="UpdateWebBT">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+             </property>
+             <property name="text">
+              <string> 更新Web</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QTableWidget" name="UpdateWeb">
+          <property name="sizeIncrement">
+           <size>
+            <width>1</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <attribute name="horizontalHeaderMinimumSectionSize">
+           <number>200</number>
+          </attribute>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>200</number>
+          </attribute>
+          <attribute name="horizontalHeaderHighlightSections">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>60</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>检验任务单编号</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>检定设备编号</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>状态</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>错误信息</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>上传接口</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>时间</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>操作日记</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_12">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="DownLoadLog">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+             </property>
+             <property name="text">
+              <string> 导出</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="ClearLog">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 16pt &quot;Agency FB&quot;;</string>
+             </property>
+             <property name="text">
+              <string> 清空</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QTextBrowser" name="ShowLog">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab3">
+       <attribute name="title">
+        <string>系统配置</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>MDS SQL</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>HostName:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="HostNameLE">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <widget class="QLabel" name="label_4">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>Port:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="PortLE">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>UserName:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="UserNameLE">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <widget class="QLabel" name="label_5">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>PassWord:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="PassWordLE">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::PasswordEchoOnEdit</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="text">
+                <string>DataBaseName:</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="DataBaseNameLE">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <item>
+              <widget class="QPushButton" name="LinkDBBT">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>链接</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="DisLinkDBBT">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string> 断开</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="groupBox_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Local Config</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_13">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <item>
+                <widget class="QLabel" name="label_8">
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>检定线/台体编号</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="DETECT_EQUIP_NO"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_12">
+               <item>
+                <widget class="QLabel" name="label_9">
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>10</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>检定单元编号</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="DETECT_UNIT_NO"/>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>600</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Web&amp;&amp;Mds Config</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_7">
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>      WebUrl：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="WebUrlLE">
+               <property name="minimumSize">
+                <size>
+                 <width>435</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_8">
+             <item>
+              <widget class="QLabel" name="label_7">
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>鉴定数据表：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="FileNameLE">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="OpenFileBT">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Arial</family>
+                 <pointsize>10</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string> 打开文件</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
