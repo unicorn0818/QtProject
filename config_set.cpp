@@ -639,36 +639,12 @@ void Config_set::receiveInfo(){
 void Config_set::sloReadyRead()
 {
     QString str = QString::fromLatin1(m_serialPort->readAll());
-    //qDebug()<<"str"<<str;
-//    QStringList content;
-//    content = str.split("\r\n");
-   // qDebug()<<"content"<<content;
-//    if(content.at(0)=="WAVESTART")
-//        emit send_to_TRJ(content,1);
-//    else if(content.at(0)=="WAVESTOP")
-//        emit send_to_TRJ(content,2);
-
-//    if(-1!=str.indexOf("\r\n"))
-//    {
-//        QStringList content;
-//        content = str.split("\r\n");
-//        if(-1!=str.indexOf("WAVESTART"))
-//            emit send_to_TRJ(content,1);
-//        else if(-1!=str.indexOf("WAVESTOP"))
-//            emit send_to_TRJ(content,2);
-//    }
     QStringList content;
-    if(str.contains("WAVESTOP"))
-    {
-        content.append("WAVESTOP");
-        emit send_to_TRJ(content,2);
-    }
-    else if(str.contains("WAVESTART"))
-    {
-        content = str.split("\r\n");
+    content = str.split("\r\n");
+    if(content.at(0)=="WAVESTART")
         emit send_to_TRJ(content,1);
-    }
-
+    else if(content.at(0)=="WAVESTOP")
+        emit send_to_TRJ(content,2);
 }
 //发送信息
 void Config_set::recvBack(bool status,int flag)

@@ -1793,10 +1793,19 @@ QVector<float> wave_reout_ZJ::OverLay(QList<int> ch_list,QString file_name)
  */
 void wave_reout_ZJ::recvOrder(QStringList order, int flag)
 {
-    if(flag==1)
+    if(flag==1&&order.count()>=3)
     {
+//        if(order.count()>3)
+//        {
+//            for(int i=3;i<order.count();i++)
+//                order.removeAt(i);
+//        }
+        if(order.at(1).isEmpty()||order.at(2).isEmpty())
+            return ;
         int INDEX = order.at(1).mid(order.at(1).indexOf(":")+1).toInt();
         int NUM = order.at(2).mid(order.at(2).indexOf(":")+1).toInt();
+        if(INDEX<0||NUM<1)
+            return ;
         if(model->rowCount()>INDEX&&MainWindow::net_flag)
         {
             dialog->close();
