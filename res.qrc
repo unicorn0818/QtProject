@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/">
+        <file>style.qrc</file>
+        <file>style.qss</file>
+        <file>png/check1.png</file>
+        <file>png/check2.png</file>
+        <file>png/label1.png</file>
+        <file>png/label2.png</file>
+        <file>png/scroll_left.png</file>
+        <file>png/scroll_right.png</file>
+        <file>png/spin_down1.png</file>
+        <file>png/spin_down2.png</file>
+        <file>png/spin_up1.png</file>
+        <file>png/spin_up2.png</file>
+        <file>png/state_1.png</file>
+        <file>png/state_2.png</file>
+        <file>png/state_3.png</file>
+        <file>png/tree_1.png</file>
+        <file>png/tree_2.png</file>
+        <file>png/logo.png</file>
+        <file>qt_zh_CN.qm</file>
+    </qresource>
+</RCC>
