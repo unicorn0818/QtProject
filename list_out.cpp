@@ -487,15 +487,19 @@ void List_out::recv_mesg(QByteArray last,QByteArray now)
             {
                 case XL803::MARKERB_EUA:
                     ui->ua_flag->set_value(0);
+                    ui->ua_value->clear();
                     break;
                 case XL803::MARKERB_EUB:
                     ui->ub_flag->set_value(0);
+                    ui->ub_value->clear();
                     break;
                 case XL803::MARKERB_EUC:
                     ui->uc_flag->set_value(0);
+                    ui->uc_value->clear();
                     break;
                 case XL803::MARKERB_EUD:
                     ui->ud_flag->set_value(0);
+                    ui->ud_value->clear();
                     break;
             }
             last.remove(0,3);

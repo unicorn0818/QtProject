@@ -112,6 +112,7 @@ m_base_out::m_base_out(QWidget *parent) :
     ui->line->setStyleSheet("border:2px solid rgb(255,215,0);");
     ui->line_2->setStyleSheet("border:2px solid rgb(0,255,0);");
     ui->line_3->setStyleSheet("border:2px solid rgb(255,0,0);");
+    ui->line_7->setStyleSheet("border:2px solid rgb(0,0,255);");
     ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     QVector<QString> list;
@@ -123,6 +124,8 @@ m_base_out::m_base_out(QWidget *parent) :
     memset(ub,0,sizeof(out_value));
     uc=new out_value;
     memset(uc,0,sizeof(out_value));
+    ud=new out_value;
+    memset(ud,0,sizeof(out_value));
     ia=new out_value;
     memset(ia,0,sizeof(out_value));
     ib=new out_value;
@@ -137,16 +140,18 @@ m_base_out::m_base_out(QWidget *parent) :
     group->addButton(ui->ua_value,1);
     group->addButton(ui->ub_value,2);
     group->addButton(ui->uc_value,3);
+    group->addButton(ui->ud_value,7);
     group->addButton(ui->ia_value,4);
     group->addButton(ui->ib_value,5);
     group->addButton(ui->ic_value,6);
     connect(group,SIGNAL(buttonClicked(int)),this,SLOT(show_value(int )));
-    ui->tableView->setSpan(4,0,1,2);
-    ui->tableView->setSpan(4,2,1,2);
-    ui->tableView->setSpan(4,4,1,2);
+//    ui->tableView->setSpan(4,0,1,2);
+//    ui->tableView->setSpan(4,2,1,2);
+//    ui->tableView->setSpan(4,4,1,2);
     model=new QStandardItemModel(this);
     QStringList label;
-    label<<"UA"<<"IA"<<"UB"<<"IB"<<"UC"<<"IC";
+//    label<<"UA"<<"IA"<<"UB"<<"IB"<<"UC"<<"IC";
+    label<<"UA"<<"UB"<<"UC"<<"UD";
     model->setHorizontalHeaderLabels(label);
     label.clear();
     label<<"波形"<<"有效值"<<"相位"<<"直流偏移"<<"频率";
@@ -170,23 +175,26 @@ m_base_out::m_base_out(QWidget *parent) :
 
     connect(dele,SIGNAL(editd(QModelIndex ,double )),this,SLOT(update_value(QModelIndex ,double )));
     connect(L_XL803,SIGNAL(send_to_base_out(QByteArray,QByteArray)),this,SLOT(recv_mesg(QByteArray,QByteArray)));
-    group_value<<ua<<ia<<ub<<ib<<uc<<ic;
+//    group_value<<ua<<ia<<ub<<ib<<uc<<ic;
+    group_value<<ua<<ub<<uc<<ud;
     l_ua=ui->U_map->addGraph();
     l_ia=ui->I_map->addGraph();
     l_ub=ui->U_map->addGraph();
     l_ib=ui->I_map->addGraph();
     l_uc=ui->U_map->addGraph();
     l_ic=ui->I_map->addGraph();
+    l_ud=ui->U_map->addGraph();
     l_ua->setPen(QPen(Qt::yellow,1));
     l_ia->setPen(QPen(Qt::yellow,1));
     l_ub->setPen(QPen(Qt::green,1));
     l_ib->setPen(QPen(Qt::green,1));
     l_uc->setPen(QPen(Qt::red,1));
     l_ic->setPen(QPen(Qt::red,1));
+    l_ud->setPen(QPen(Qt::blue,1));
     ui->U_map->yAxis->setRange(-10,10);
     ui->I_map->yAxis->setRange(-2,2);
     init_value();
-   // hide_i();
+    hide_i();
 }
 void m_base_out::recv_mesg(QByteArray send, QByteArray read)
 {
@@ -246,6 +254,12 @@ void m_base_out::show_value(int id)
         ui->ratio->setValue(ic->ratio);
         ui->wave_type->setValue(ic->wave_type);
         break;
+    case 7:
+        ui->value->setValue(ud->value);
+        ui->phase->setValue(ud->phase);
+        ui->ratio->setValue(ud->ratio);
+        ui->wave_type->setValue(ud->wave_type);
+        break;
     default:
         break;
     }
@@ -264,12 +278,12 @@ void m_base_out::on_wave_type_valueChanged(int arg1)
     }else if(ui->ub_value->isChecked())
     {
         ub->wave_type=arg1;
-        model->setData(model->index(0,2),QVariant(ui->wave_type->text()));
+        model->setData(model->index(0,1),QVariant(ui->wave_type->text()));
     }else if(ui->uc_value->isChecked())
     {
         uc->wave_type=arg1;
-        model->setData(model->index(0,5),QVariant(ui->wave_type->text()));
-    }else if(ui->ia_value->isChecked())
+        model->setData(model->index(0,2),QVariant(ui->wave_type->text()));
+    }/*else if(ui->ia_value->isChecked())
     {
         ia->wave_type=arg1;
         model->setData(model->index(0,1),QVariant(ui->wave_type->text()));
@@ -281,6 +295,10 @@ void m_base_out::on_wave_type_valueChanged(int arg1)
     {
         ic->wave_type=arg1;
         model->setData(model->index(0,6),QVariant(ui->wave_type->text()));
+    }*/else if(ui->ud_value->isChecked())
+    {
+        ud->wave_type=arg1;
+        model->setData(model->index(0,3),QVariant(ui->wave_type->text()));
     }
 }
 
@@ -296,12 +314,16 @@ void m_base_out::on_value_valueChanged(double arg1)
     }else if(ui->ub_value->isChecked())
     {
         ub->value=arg1;
-        model->setData(model->index(1,2),QVariant(arg1));
+        model->setData(model->index(1,1),QVariant(arg1));
     }else if(ui->uc_value->isChecked())
     {
         uc->value=arg1;
-        model->setData(model->index(1,4),QVariant(arg1));
-    }else if(ui->ia_value->isChecked())
+        model->setData(model->index(1,2),QVariant(arg1));
+    }else if(ui->ud_value->isChecked())
+    {
+        ud->value=arg1;
+        model->setData(model->index(1,3),QVariant(arg1));
+    }/*else if(ui->ia_value->isChecked())
     {
         ia->value=arg1;
         model->setData(model->index(1,1),QVariant(arg1));
@@ -313,7 +335,7 @@ void m_base_out::on_value_valueChanged(double arg1)
     {
         ic->value=arg1;
         model->setData(model->index(1,5),QVariant(arg1));
-    }
+    }*/
 }
 
 void m_base_out::on_phase_valueChanged(double arg1)
@@ -328,12 +350,16 @@ void m_base_out::on_phase_valueChanged(double arg1)
     }else if(ui->ub_value->isChecked())
     {
         ub->phase=arg1;
-        model->setData(model->index(2,2),QVariant(arg1));
+        model->setData(model->index(2,1),QVariant(arg1));
     }else if(ui->uc_value->isChecked())
     {
         uc->phase=arg1;
-        model->setData(model->index(2,4),QVariant(arg1));
-    }else if(ui->ia_value->isChecked())
+        model->setData(model->index(2,2),QVariant(arg1));
+    }else if(ui->ud_value->isChecked())
+    {
+        ud->phase=arg1;
+        model->setData(model->index(2,3),QVariant(arg1));
+    }/*else if(ui->ia_value->isChecked())
     {
         ia->phase=arg1;
         model->setData(model->index(2,1),QVariant(arg1));
@@ -345,7 +371,7 @@ void m_base_out::on_phase_valueChanged(double arg1)
     {
         ic->phase=arg1;
         model->setData(model->index(2,5),QVariant(arg1));
-    }
+    }*/
 }
 
 void m_base_out::on_ratio_valueChanged(double arg1)
@@ -360,12 +386,16 @@ void m_base_out::on_ratio_valueChanged(double arg1)
     }else if(ui->ub_value->isChecked())
     {
         ub->ratio=arg1;
-        model->setData(model->index(3,2),QVariant(arg1));
+        model->setData(model->index(3,1),QVariant(arg1));
     }else if(ui->uc_value->isChecked())
     {
         uc->ratio=arg1;
-        model->setData(model->index(3,4),QVariant(arg1));
-    }else if(ui->ia_value->isChecked())
+        model->setData(model->index(3,2),QVariant(arg1));
+    }else if(ui->ud_value->isChecked())
+    {
+        ud->ratio=arg1;
+        model->setData(model->index(3,3),QVariant(arg1));
+    }/*else if(ui->ia_value->isChecked())
     {
         ia->ratio=arg1;
         model->setData(model->index(3,1),QVariant(arg1));
@@ -377,7 +407,7 @@ void m_base_out::on_ratio_valueChanged(double arg1)
     {
         ic->ratio=arg1;
         model->setData(model->index(3,5),QVariant(arg1));
-    }
+    }*/
 }
 
 
@@ -388,9 +418,10 @@ void m_base_out::set_value(float value,int type)
         ua->wave_type=value;
         ub->wave_type=value;
         uc->wave_type=value;
-        ia->wave_type=value;
-        ib->wave_type=value;
-        ic->wave_type=value;
+        ud->wave_type=value;
+//        ia->wave_type=value;
+//        ib->wave_type=value;
+//        ic->wave_type=value;
         for(int i=0;i<model->columnCount();i++)
         {
             model->setData(model->index(0,i),QVariant(ui->wave_type->text()));
@@ -400,9 +431,10 @@ void m_base_out::set_value(float value,int type)
         ua->value=value;
         ub->value=value;
         uc->value=value;
-        ia->value=value;
-        ib->value=value;
-        ic->value=value;
+        uc->value=value;
+//        ia->value=value;
+//        ib->value=value;
+//        ic->value=value;
         for(int i=0;i<model->columnCount();i++)
         {
             model->setData(model->index(type,i),QVariant(value));
@@ -412,9 +444,10 @@ void m_base_out::set_value(float value,int type)
         ua->ratio=value;
         ub->ratio=value;
         uc->ratio=value;
-        ia->ratio=value;
-        ib->ratio=value;
-        ic->ratio=value;
+        ud->ratio=value;
+//        ia->ratio=value;
+//        ib->ratio=value;
+//        ic->ratio=value;
         for(int i=0;i<model->columnCount();i++)
         {
             model->setData(model->index(3,i),QVariant(value));
@@ -424,9 +457,10 @@ void m_base_out::set_value(float value,int type)
         ua->phase=value;
         ub->phase=value;
         uc->phase=value;
-        ia->phase=value;
-        ib->phase=value;
-        ic->phase=value;
+        ud->phase=value;
+//        ia->phase=value;
+//        ib->phase=value;
+//        ic->phase=value;
         for(int i=0;i<model->columnCount();i++)
         {
             model->setData(model->index(2,i),QVariant(value));
@@ -443,9 +477,10 @@ void m_base_out::on_all_start_clicked()
     ui->ua_start->setChecked(ui->all_start->isChecked());
     ui->ub_start->setChecked(ui->all_start->isChecked());
     ui->uc_start->setChecked(ui->all_start->isChecked());
-    ui->ia_start->setChecked(ui->all_start->isChecked());
-    ui->ib_start->setChecked(ui->all_start->isChecked());
-    ui->ic_start->setChecked(ui->all_start->isChecked());
+    ui->ud_start->setChecked(ui->all_start->isChecked());
+//    ui->ia_start->setChecked(ui->all_start->isChecked());
+//    ui->ib_start->setChecked(ui->all_start->isChecked());
+//    ui->ic_start->setChecked(ui->all_start->isChecked());
 }
 
 void m_base_out::on_start_clicked()
@@ -478,6 +513,7 @@ void m_base_out::on_start_clicked()
         set_line_data(l_ub,2,true);
     }
     set_ub_out(&data);
+
     if(ui->ib_start->isChecked())
     {
         set_ib_out(&data);
@@ -496,7 +532,13 @@ void m_base_out::on_start_clicked()
         ac.insert(XL803::MARKERB_SIC,0x01);
         set_line_data(l_ic,5,false);
     }
-    data.insert(XL803::MARKERB_FD,xl609->float_to_quint(ui->a_b_freq->value()));
+    if(ui->ud_start->isChecked())
+    {
+        ac.insert(XL803::MARKERB_SUD,0x01);
+        set_line_data(l_ud,6,true);
+    }
+    set_ud_out(&data);
+    //data.insert(XL803::MARKERB_FD,xl609->float_to_quint(ui->a_b_freq->value()));
     xl609->COM_HightWrite(data,XL803::BASE_OUT);
     xl609->COM_StartUp(ac,XL803::BASE_OUT);
 }
@@ -540,6 +582,11 @@ void m_base_out::on_stop_clicked()
     {
         ac.insert(XL803::MARKERB_EIC,0x01);
         l_ic->setVisible(false);
+    }
+    if(ui->ud_start->isChecked())
+    {
+        ac.insert(XL803::MARKERB_EUD,0x01);
+        l_ud->setVisible(false);
     }
     xl609->COM_Stop(ac,XL803::BASE_OUT);
 }
@@ -678,6 +725,18 @@ void m_base_out::set_uc_out(QMap<XL803::MARKERB, qint32> *data)
     data->insert(XL803::MARKERB_WT_UC,uc->wave_type);
     data->insert(XL803::DCBias5,xl609->float_to_quint(uc->ratio));
 }
+void m_base_out::set_ud_out(QMap<XL803::MARKERB, qint32> *data)
+{
+    data->insert(XL803::MARKERB_UD,xl609->float_to_quint(ud->value));
+    data->insert(XL803::MARKERB_UDP,xl609->float_to_quint(ud->phase));
+    if(ui->freq_set->isChecked())
+        data->insert(XL803::MARKERB_FD,xl609->float_to_quint(ui->a_b_freq->value()));
+    else
+        data->insert(XL803::MARKERB_FD,xl609->float_to_quint(ui->c_freq_3->value()));
+    data->insert(XL803::MARKERB_DUD,0x55);
+    data->insert(XL803::MARKERB_WT_UD,ud->wave_type);
+    data->insert(XL803::DCBias7,xl609->float_to_quint(ud->ratio));
+}
 void m_base_out::update_value(QModelIndex index,double value)
 {
     int row=index.row();
@@ -701,17 +760,21 @@ void m_base_out::update_value(QModelIndex index,double value)
             ui->a_b_freq->setValue(value);
             ui->c_freq_2->setValue(value);
             ui->c_freq->setValue(value);
+            ui->c_freq_3->setValue(value);
         }else
         {
             if(colum==0)
             {
                 ui->a_b_freq->setValue(value);
-            }else if(colum==2)
+            }else if(colum==1)
             {
                 ui->c_freq_2->setValue(value);
-            }else if(colum==4)
+            }else if(colum==2)
             {
                 ui->c_freq->setValue(value);
+            }else if(colum==3)
+            {
+                ui->c_freq_3->setValue(value);
             }
         }
     }
@@ -787,6 +850,13 @@ void m_base_out::set_line_data(QCPGraph * line,int type,bool u_flag)
         w_type=ic->wave_type;
         phase=ic->phase;
         freq=ui->c_freq->value();
+        break;
+    case 6:
+        max=ud->value;
+        ratio=ud->ratio;
+        w_type=ud->wave_type;
+        phase=ud->phase;
+        freq=ui->c_freq_3->value();
         break;
     default:
         break;
@@ -968,41 +1038,44 @@ void m_base_out::init_value()
 {
     for(int i=0;i<model->columnCount();i++)
     {
-        if(i%2==0)
+//        if(i%2==0)
             model->setData(model->index(1,i),QVariant(57.7));
-        if(i%2)
-            model->setData(model->index(1,i),QVariant(1));
+//        if(i%2)
+//            model->setData(model->index(1,i),QVariant(1));
     }
     model->setData(model->index(2,0),QVariant(0));
-    model->setData(model->index(2,1),QVariant(0));
-    model->setData(model->index(2,2),QVariant(240));
-    model->setData(model->index(2,3),QVariant(240));
-    model->setData(model->index(2,4),QVariant(120));
-    model->setData(model->index(2,5),QVariant(120));
-    model->setData(model->index(4,0),QVariant(50));
-    model->setData(model->index(4,2),QVariant(50));
-    model->setData(model->index(4,4),QVariant(50));
+    model->setData(model->index(2,1),QVariant(240));
+    model->setData(model->index(2,2),QVariant(120));
+    model->setData(model->index(2,3),QVariant(0));
+//    model->setData(model->index(2,4),QVariant(120));
+//    model->setData(model->index(2,5),QVariant(120));
+//    model->setData(model->index(4,0),QVariant(50));
+//    model->setData(model->index(4,2),QVariant(50));
+//    model->setData(model->index(4,4),QVariant(50));
     for(int i=0;i<group_value.count();i++)
     {
-        if(i%2==0)
-        {
+//        if(i%2==0)
+//        {
             group_value.at(i)->value=57.7;
-        }
-        if(i%2==1)
-        {
-            group_value.at(i)->value=1;
-        }
+//        }
+//        if(i%2==1)
+//        {
+//            group_value.at(i)->value=1;
+//        }
         group_value.at(i)->wave_type=0;
         group_value.at(i)->ratio=0;
-        if(i<2)
+        if(i==0)
         {
             group_value.at(i)->phase=0;
-        }else if(i<4)
+        }else if(i==1)
         {
             group_value.at(i)->phase=240;
-        }else
+        }else if(i==2)
         {
             group_value.at(i)->phase=120;
+        }else
+        {
+            group_value.at(i)->phase=0;
         }
     }
 }

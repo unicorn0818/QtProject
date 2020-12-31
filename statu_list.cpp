@@ -175,7 +175,7 @@ void Statu_list::show_out_list()
     float ud=0;
     for(int i=0;i<mesg_model->rowCount();i++)
     {
-        for(int j=0;j<3;j++)
+        for(int j=0;j<4;j++)
         {
             mesg_model->item(i,j)->setText(0);
         }
@@ -238,15 +238,16 @@ void Statu_list::show_out_list()
 void Statu_list::update_vector(QModelIndex index,QString value)
 {
     if(value.length()<=0)
-        value="0,0,0";
+        value="0,0,0,0";
     if(index.row()<0)
         return;
     float ua,ub,uc,ud;
     ua=ub=uc=ud=0;
-    if(index.column()<3)
+    if(index.column()<4)
     {
         bool flag;
-        for(int i=0;i<3;i++)
+        qDebug()<<"flag"<<flag<<"value"<<value;
+        for(int i=0;i<4;i++)
         {
             if(i==0)
             {
@@ -258,7 +259,7 @@ void Statu_list::update_vector(QModelIndex index,QString value)
                 value.remove(0,value.indexOf(",")+1);
             }else if(i==2)
             {
-                uc=(value.mid(0,value.length())).toFloat(&flag);
+                uc=(value.mid(0,value.indexOf(","))).toFloat(&flag);
                 value.remove(0,value.indexOf(",")+1);
             }else if(i==3)
             {
@@ -268,7 +269,7 @@ void Statu_list::update_vector(QModelIndex index,QString value)
             if(flag==false)
             {
                 QMessageBox::information(this,"提示","无法解析!");
-                value="0,0,0";
+                value="0,0,0,0";
                 mesg_model->item(index.row(),index.column())->setData(value,Qt::EditRole);
                 return;
             }

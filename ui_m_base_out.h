@@ -35,6 +35,17 @@ class Ui_m_base_out
 {
 public:
     QGridLayout *gridLayout;
+    QHBoxLayout *horizontalLayout_10;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_20;
+    QFrame *line;
+    QLabel *label_21;
+    QFrame *line_2;
+    QLabel *label_22;
+    QFrame *line_3;
+    QLabel *label_23;
+    QFrame *line_7;
+    QSpacerItem *horizontalSpacer_4;
     QGridLayout *gridLayout_2;
     QFrame *frame_4;
     QGridLayout *gridLayout_6;
@@ -58,6 +69,7 @@ public:
     QCheckBox *ua_start;
     QCheckBox *ub_start;
     QCheckBox *uc_start;
+    QCheckBox *ud_start;
     QHBoxLayout *horizontalLayout_5;
     QCheckBox *ia_start;
     QCheckBox *ib_start;
@@ -81,6 +93,7 @@ public:
     QCheckBox *ib_value;
     QCheckBox *uc_value;
     QCheckBox *ic_value;
+    QCheckBox *ud_value;
     QGridLayout *gridLayout_3;
     QLabel *label;
     M_spinbox *wave_type;
@@ -102,6 +115,8 @@ public:
     QDoubleSpinBox *c_freq_2;
     QLabel *label_6;
     QDoubleSpinBox *c_freq;
+    QLabel *label_9;
+    QDoubleSpinBox *c_freq_3;
     QSpacerItem *verticalSpacer_3;
     QWidget *tab_2;
     QGridLayout *gridLayout_9;
@@ -112,25 +127,87 @@ public:
     QFrame *frame_2;
     QGridLayout *gridLayout_5;
     CustomPlotHasRoll *I_map;
-    QHBoxLayout *horizontalLayout_11;
-    QSpacerItem *horizontalSpacer;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *label_20;
-    QFrame *line;
-    QLabel *label_21;
-    QFrame *line_2;
-    QLabel *label_22;
-    QFrame *line_3;
-    QSpacerItem *horizontalSpacer_4;
 
     void setupUi(QWidget *m_base_out)
     {
         if (m_base_out->objectName().isEmpty())
             m_base_out->setObjectName(QStringLiteral("m_base_out"));
-        m_base_out->resize(750, 500);
+        m_base_out->resize(879, 500);
         gridLayout = new QGridLayout(m_base_out);
-        gridLayout->setSpacing(0);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_10->addItem(horizontalSpacer);
+
+        label_20 = new QLabel(m_base_out);
+        label_20->setObjectName(QStringLiteral("label_20"));
+
+        horizontalLayout_10->addWidget(label_20);
+
+        line = new QFrame(m_base_out);
+        line->setObjectName(QStringLiteral("line"));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(line->sizePolicy().hasHeightForWidth());
+        line->setSizePolicy(sizePolicy);
+        line->setStyleSheet(QStringLiteral("color: rgb(255, 255, 127);"));
+        line->setFrameShadow(QFrame::Raised);
+        line->setFrameShape(QFrame::HLine);
+
+        horizontalLayout_10->addWidget(line);
+
+        label_21 = new QLabel(m_base_out);
+        label_21->setObjectName(QStringLiteral("label_21"));
+
+        horizontalLayout_10->addWidget(label_21);
+
+        line_2 = new QFrame(m_base_out);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        sizePolicy.setHeightForWidth(line_2->sizePolicy().hasHeightForWidth());
+        line_2->setSizePolicy(sizePolicy);
+        line_2->setFrameShadow(QFrame::Raised);
+        line_2->setFrameShape(QFrame::HLine);
+
+        horizontalLayout_10->addWidget(line_2);
+
+        label_22 = new QLabel(m_base_out);
+        label_22->setObjectName(QStringLiteral("label_22"));
+
+        horizontalLayout_10->addWidget(label_22);
+
+        line_3 = new QFrame(m_base_out);
+        line_3->setObjectName(QStringLiteral("line_3"));
+        sizePolicy.setHeightForWidth(line_3->sizePolicy().hasHeightForWidth());
+        line_3->setSizePolicy(sizePolicy);
+        line_3->setFrameShadow(QFrame::Raised);
+        line_3->setFrameShape(QFrame::HLine);
+
+        horizontalLayout_10->addWidget(line_3);
+
+        label_23 = new QLabel(m_base_out);
+        label_23->setObjectName(QStringLiteral("label_23"));
+
+        horizontalLayout_10->addWidget(label_23);
+
+        line_7 = new QFrame(m_base_out);
+        line_7->setObjectName(QStringLiteral("line_7"));
+        sizePolicy.setHeightForWidth(line_7->sizePolicy().hasHeightForWidth());
+        line_7->setSizePolicy(sizePolicy);
+        line_7->setFrameShadow(QFrame::Raised);
+        line_7->setFrameShape(QFrame::HLine);
+
+        horizontalLayout_10->addWidget(line_7);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_10->addItem(horizontalSpacer_4);
+
+
+        gridLayout->addLayout(horizontalLayout_10, 0, 0, 1, 1);
+
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(1);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
@@ -148,11 +225,11 @@ public:
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         pushButton = new QPushButton(frame_4);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy);
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy1);
 
         horizontalLayout_9->addWidget(pushButton);
 
@@ -164,15 +241,17 @@ public:
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
         pushButton_2 = new QPushButton(frame_4);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy);
+        pushButton_2->setEnabled(false);
+        sizePolicy1.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
+        pushButton_2->setSizePolicy(sizePolicy1);
 
         horizontalLayout_7->addWidget(pushButton_2);
 
         pushButton_3 = new QPushButton(frame_4);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        sizePolicy.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy);
+        pushButton_3->setEnabled(false);
+        sizePolicy1.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
+        pushButton_3->setSizePolicy(sizePolicy1);
 
         horizontalLayout_7->addWidget(pushButton_3);
 
@@ -184,15 +263,17 @@ public:
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
         pushButton_7 = new QPushButton(frame_4);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        sizePolicy.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy);
+        pushButton_7->setEnabled(false);
+        sizePolicy1.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
+        pushButton_7->setSizePolicy(sizePolicy1);
 
         horizontalLayout_8->addWidget(pushButton_7);
 
         pushButton_6 = new QPushButton(frame_4);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        sizePolicy.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy);
+        pushButton_6->setEnabled(false);
+        sizePolicy1.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
+        pushButton_6->setSizePolicy(sizePolicy1);
 
         horizontalLayout_8->addWidget(pushButton_6);
 
@@ -204,8 +285,9 @@ public:
 
         pushButton_4 = new QPushButton(frame_4);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        sizePolicy.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
-        pushButton_4->setSizePolicy(sizePolicy);
+        pushButton_4->setEnabled(false);
+        sizePolicy1.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
+        pushButton_4->setSizePolicy(sizePolicy1);
 
         horizontalLayout_9->addWidget(pushButton_4);
 
@@ -222,11 +304,8 @@ public:
         all_start = new QCheckBox(frame_4);
         all_start->setObjectName(QStringLiteral("all_start"));
         all_start->setEnabled(true);
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(all_start->sizePolicy().hasHeightForWidth());
-        all_start->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(all_start->sizePolicy().hasHeightForWidth());
+        all_start->setSizePolicy(sizePolicy);
         QFont font;
         font.setPointSize(12);
         all_start->setFont(font);
@@ -236,8 +315,8 @@ public:
         u_i_all_start = new QCheckBox(frame_4);
         u_i_all_start->setObjectName(QStringLiteral("u_i_all_start"));
         u_i_all_start->setEnabled(true);
-        sizePolicy1.setHeightForWidth(u_i_all_start->sizePolicy().hasHeightForWidth());
-        u_i_all_start->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(u_i_all_start->sizePolicy().hasHeightForWidth());
+        u_i_all_start->setSizePolicy(sizePolicy);
         u_i_all_start->setFont(font);
 
         horizontalLayout_3->addWidget(u_i_all_start);
@@ -274,6 +353,12 @@ public:
         uc_start->setFont(font);
 
         horizontalLayout_4->addWidget(uc_start);
+
+        ud_start = new QCheckBox(frame_4);
+        ud_start->setObjectName(QStringLiteral("ud_start"));
+        ud_start->setFont(font);
+
+        horizontalLayout_4->addWidget(ud_start);
 
 
         verticalLayout_4->addLayout(horizontalLayout_4);
@@ -408,6 +493,12 @@ public:
 
         horizontalLayout->addWidget(ic_value);
 
+        ud_value = new QCheckBox(frame_3);
+        ud_value->setObjectName(QStringLiteral("ud_value"));
+        ud_value->setFont(font);
+
+        horizontalLayout->addWidget(ud_value);
+
 
         verticalLayout_2->addLayout(horizontalLayout);
 
@@ -422,8 +513,8 @@ public:
 
         wave_type = new M_spinbox(frame_3);
         wave_type->setObjectName(QStringLiteral("wave_type"));
-        sizePolicy.setHeightForWidth(wave_type->sizePolicy().hasHeightForWidth());
-        wave_type->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(wave_type->sizePolicy().hasHeightForWidth());
+        wave_type->setSizePolicy(sizePolicy1);
 
         gridLayout_3->addWidget(wave_type, 0, 1, 1, 1);
 
@@ -434,8 +525,8 @@ public:
 
         value = new QDoubleSpinBox(frame_3);
         value->setObjectName(QStringLiteral("value"));
-        sizePolicy.setHeightForWidth(value->sizePolicy().hasHeightForWidth());
-        value->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(value->sizePolicy().hasHeightForWidth());
+        value->setSizePolicy(sizePolicy1);
         value->setMinimum(-500);
         value->setMaximum(500);
         value->setValue(57.7);
@@ -449,8 +540,8 @@ public:
 
         phase = new QDoubleSpinBox(frame_3);
         phase->setObjectName(QStringLiteral("phase"));
-        sizePolicy.setHeightForWidth(phase->sizePolicy().hasHeightForWidth());
-        phase->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(phase->sizePolicy().hasHeightForWidth());
+        phase->setSizePolicy(sizePolicy1);
         phase->setMinimum(-360);
         phase->setMaximum(360);
 
@@ -464,8 +555,8 @@ public:
         ratio = new QDoubleSpinBox(frame_3);
         ratio->setObjectName(QStringLiteral("ratio"));
         ratio->setEnabled(false);
-        sizePolicy.setHeightForWidth(ratio->sizePolicy().hasHeightForWidth());
-        ratio->setSizePolicy(sizePolicy);
+        sizePolicy1.setHeightForWidth(ratio->sizePolicy().hasHeightForWidth());
+        ratio->setSizePolicy(sizePolicy1);
         ratio->setMinimum(-180);
         ratio->setMaximum(180);
 
@@ -563,6 +654,24 @@ public:
 
         horizontalLayout_2->addWidget(c_freq);
 
+        label_9 = new QLabel(frame_3);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        sizePolicy3.setHeightForWidth(label_9->sizePolicy().hasHeightForWidth());
+        label_9->setSizePolicy(sizePolicy3);
+        label_9->setLayoutDirection(Qt::RightToLeft);
+
+        horizontalLayout_2->addWidget(label_9);
+
+        c_freq_3 = new QDoubleSpinBox(frame_3);
+        c_freq_3->setObjectName(QStringLiteral("c_freq_3"));
+        sizePolicy2.setHeightForWidth(c_freq_3->sizePolicy().hasHeightForWidth());
+        c_freq_3->setSizePolicy(sizePolicy2);
+        c_freq_3->setMinimum(40);
+        c_freq_3->setMaximum(65);
+        c_freq_3->setValue(50);
+
+        horizontalLayout_2->addWidget(c_freq_3);
+
         horizontalLayout_2->setStretch(0, 1);
         horizontalLayout_2->setStretch(1, 1);
         horizontalLayout_2->setStretch(2, 1);
@@ -646,79 +755,6 @@ public:
 
         gridLayout->addLayout(gridLayout_2, 1, 0, 1, 1);
 
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_11->addItem(horizontalSpacer);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        label_20 = new QLabel(m_base_out);
-        label_20->setObjectName(QStringLiteral("label_20"));
-
-        horizontalLayout_10->addWidget(label_20);
-
-        line = new QFrame(m_base_out);
-        line->setObjectName(QStringLiteral("line"));
-        sizePolicy1.setHeightForWidth(line->sizePolicy().hasHeightForWidth());
-        line->setSizePolicy(sizePolicy1);
-        line->setStyleSheet(QStringLiteral("color: rgb(255, 255, 127);"));
-        line->setFrameShadow(QFrame::Raised);
-        line->setFrameShape(QFrame::HLine);
-
-        horizontalLayout_10->addWidget(line);
-
-        label_21 = new QLabel(m_base_out);
-        label_21->setObjectName(QStringLiteral("label_21"));
-
-        horizontalLayout_10->addWidget(label_21);
-
-        line_2 = new QFrame(m_base_out);
-        line_2->setObjectName(QStringLiteral("line_2"));
-        sizePolicy1.setHeightForWidth(line_2->sizePolicy().hasHeightForWidth());
-        line_2->setSizePolicy(sizePolicy1);
-        line_2->setFrameShadow(QFrame::Raised);
-        line_2->setFrameShape(QFrame::HLine);
-
-        horizontalLayout_10->addWidget(line_2);
-
-        label_22 = new QLabel(m_base_out);
-        label_22->setObjectName(QStringLiteral("label_22"));
-
-        horizontalLayout_10->addWidget(label_22);
-
-        line_3 = new QFrame(m_base_out);
-        line_3->setObjectName(QStringLiteral("line_3"));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(line_3->sizePolicy().hasHeightForWidth());
-        line_3->setSizePolicy(sizePolicy4);
-        line_3->setFrameShadow(QFrame::Raised);
-        line_3->setFrameShape(QFrame::HLine);
-
-        horizontalLayout_10->addWidget(line_3);
-
-        horizontalLayout_10->setStretch(0, 1);
-        horizontalLayout_10->setStretch(1, 2);
-        horizontalLayout_10->setStretch(2, 1);
-        horizontalLayout_10->setStretch(3, 2);
-        horizontalLayout_10->setStretch(4, 1);
-        horizontalLayout_10->setStretch(5, 2);
-
-        horizontalLayout_11->addLayout(horizontalLayout_10);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_11->addItem(horizontalSpacer_4);
-
-        horizontalLayout_11->setStretch(0, 1);
-        horizontalLayout_11->setStretch(1, 1);
-        horizontalLayout_11->setStretch(2, 1);
-
-        gridLayout->addLayout(horizontalLayout_11, 0, 0, 1, 1);
-
 
         retranslateUi(m_base_out);
 
@@ -731,6 +767,10 @@ public:
     void retranslateUi(QWidget *m_base_out)
     {
         m_base_out->setWindowTitle(QApplication::translate("m_base_out", "Form", 0));
+        label_20->setText(QApplication::translate("m_base_out", "A\347\233\270", 0));
+        label_21->setText(QApplication::translate("m_base_out", "B\347\233\270", 0));
+        label_22->setText(QApplication::translate("m_base_out", "C\347\233\270", 0));
+        label_23->setText(QApplication::translate("m_base_out", "D\347\233\270", 0));
         pushButton->setText(QApplication::translate("m_base_out", "\345\210\207\346\215\242\n"
 "\350\276\223\345\205\245\346\226\271\345\274\217", 0));
         pushButton_2->setText(QApplication::translate("m_base_out", "0.5L", 0));
@@ -743,6 +783,7 @@ public:
         ua_start->setText(QApplication::translate("m_base_out", "UA", 0));
         ub_start->setText(QApplication::translate("m_base_out", "UB", 0));
         uc_start->setText(QApplication::translate("m_base_out", "UC", 0));
+        ud_start->setText(QApplication::translate("m_base_out", "UD", 0));
         ia_start->setText(QApplication::translate("m_base_out", "IA", 0));
         ib_start->setText(QApplication::translate("m_base_out", "IB", 0));
         ic_start->setText(QApplication::translate("m_base_out", "IC", 0));
@@ -755,6 +796,7 @@ public:
         ib_value->setText(QApplication::translate("m_base_out", "IB", 0));
         uc_value->setText(QApplication::translate("m_base_out", "UC", 0));
         ic_value->setText(QApplication::translate("m_base_out", "IC", 0));
+        ud_value->setText(QApplication::translate("m_base_out", "UD", 0));
         label->setText(QApplication::translate("m_base_out", "\346\263\242\345\275\242\347\261\273\345\236\213", 0));
         label_2->setText(QApplication::translate("m_base_out", "\345\271\205\345\200\274", 0));
         label_3->setText(QApplication::translate("m_base_out", "\347\233\270\344\275\215", 0));
@@ -764,11 +806,9 @@ public:
         label_5->setText(QApplication::translate("m_base_out", "FA:", 0));
         label_7->setText(QApplication::translate("m_base_out", "FB:", 0));
         label_6->setText(QApplication::translate("m_base_out", "FC:", 0));
+        label_9->setText(QApplication::translate("m_base_out", "FD:", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("m_base_out", "Tab 1", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("m_base_out", "Tab 2", 0));
-        label_20->setText(QApplication::translate("m_base_out", "A\347\233\270", 0));
-        label_21->setText(QApplication::translate("m_base_out", "B\347\233\270", 0));
-        label_22->setText(QApplication::translate("m_base_out", "C\347\233\270", 0));
     } // retranslateUi
 
 };

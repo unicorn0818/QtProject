@@ -8,12 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     p_state_list=new Statu_list();
-    //p_base_out=new m_base_out();
+    p_base_out=new m_base_out();
     p_config_set=new Config_set();
     p_list_out=new List_out();
     p_active_wave=new active_wave();
     ui->tabWidget->addTab(p_list_out,tr("调压输出"));
-    //ui->tabWidget->addTab(p_base_out,tr("基波输出设置"));
+    ui->tabWidget->addTab(p_base_out,tr("基波输出设置"));
     ui->tabWidget->addTab(p_active_wave,tr("动态波形输出"));
     ui->tabWidget->addTab(p_state_list,tr("状态序列"));
     ui->tabWidget->addTab(p_config_set,tr("通讯设置"));

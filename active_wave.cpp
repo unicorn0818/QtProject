@@ -357,7 +357,7 @@ void active_wave::on_open_formula_clicked()
         }
         QString rula=in.readLine();
         QString time=in.readLine();
-        for(int num=0;num<3;num++)
+        for(int num=0;num<4;num++)
         {
             value.time="";
             value.rule="";
@@ -705,7 +705,7 @@ void active_wave::on_start_out_clicked()
         max_type.insert(XL803::MARKERB_WT_UD,4);
         max_type.insert(XL803::MARKERB_DUD,0x55);
         pipe=6;
-        arry.append((quint8)4);
+        arry.append((quint8)6);
         qDebug()<<"ud_max"<<ud_max;
         start_num+=6;
     }

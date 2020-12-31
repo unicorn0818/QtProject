@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     a->installTranslator(&translator);
     CommonHelper::setStyle(":./style.qss");
     QObject::connect(w,SIGNAL(close_m()),a,SLOT(quit()));
-    w->setWindowTitle("S6300 V2.1.7");
+    w->setWindowTitle("S6300_四项输出 V1.0.1");
     w->show();
     return a->exec();
 }

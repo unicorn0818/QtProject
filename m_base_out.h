@@ -121,6 +121,7 @@ private:
     out_value * ua;
     out_value * ub;
     out_value * uc;
+    out_value * ud;
     out_value * ia;
     out_value * ib;
     out_value * ic;
@@ -143,6 +144,8 @@ private:
     QCPGraph * l_ib;
     QCPGraph * l_uc;
     QCPGraph * l_ic;
+    QCPGraph * l_ud;
+    void set_ud_out(QMap<XL803::MARKERB, qint32> *data);
 };
 #include <mainwindow.h>
 #endif // M_BASE_OUT_H
