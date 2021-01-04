@@ -21,7 +21,7 @@ QWidget * BaseDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem
 //            return box;
         case 0:
             box=new QComboBox(parent);
-            type<<"正弦波"/*<<"方波"<<"三角波"<<"直流"<<"暂态波形"<<"梯形波"*/;
+            type<<"正弦波"<<"方波"<<"三角波"<<"直流"/*<<"暂态波形"<<"梯形波"*/;
             box->addItems(type);
             return box;
         case 1:
@@ -116,7 +116,7 @@ m_base_out::m_base_out(QWidget *parent) :
     ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     QVector<QString> list;
-    list<<"正弦波"/*<<"方波"<<"三角波"<<"直流"<<"暂态波形"<<"梯形波"*/;
+    list<<"正弦波"<<"方波"<<"三角波"<<"直流"/*<<"暂态波形"<<"梯形波"*/;
     ui->wave_type->set_items(list);
     ua=new out_value;
     memset(ua,0,sizeof(out_value));
@@ -681,6 +681,7 @@ void m_base_out::set_ua_out(QMap<XL803::MARKERB, qint32> *data)
     data->insert(XL803::MARKERB_FA,xl609->float_to_quint(ui->a_b_freq->value()));
     data->insert(XL803::MARKERB_DUA,0x55);
     data->insert(XL803::MARKERB_WT_UA,ua->wave_type);
+    qDebug()<<"uatype"<<ua->wave_type;
     data->insert(XL803::DCBias1,xl609->float_to_quint(ua->ratio));
 }
 void m_base_out::set_ib_out(QMap<XL803::MARKERB, qint32> *data)
@@ -702,6 +703,7 @@ void m_base_out::set_ub_out(QMap<XL803::MARKERB, qint32> *data)
         data->insert(XL803::MARKERB_FB,xl609->float_to_quint(ui->c_freq_2->value()));
     data->insert(XL803::MARKERB_DUB,0x55);
     data->insert(XL803::MARKERB_WT_UB,ub->wave_type);
+        qDebug()<<"ubtype"<<ub->wave_type;
     data->insert(XL803::DCBias3,xl609->float_to_quint(ub->ratio));
 }
 void m_base_out::set_ic_out(QMap<XL803::MARKERB, qint32> *data)
@@ -723,6 +725,7 @@ void m_base_out::set_uc_out(QMap<XL803::MARKERB, qint32> *data)
         data->insert(XL803::MARKERB_FC,xl609->float_to_quint(ui->c_freq->value()));
     data->insert(XL803::MARKERB_DUC,0x55);
     data->insert(XL803::MARKERB_WT_UC,uc->wave_type);
+        qDebug()<<"uctype"<<uc->wave_type;
     data->insert(XL803::DCBias5,xl609->float_to_quint(uc->ratio));
 }
 void m_base_out::set_ud_out(QMap<XL803::MARKERB, qint32> *data)
@@ -735,6 +738,7 @@ void m_base_out::set_ud_out(QMap<XL803::MARKERB, qint32> *data)
         data->insert(XL803::MARKERB_FD,xl609->float_to_quint(ui->c_freq_3->value()));
     data->insert(XL803::MARKERB_DUD,0x55);
     data->insert(XL803::MARKERB_WT_UD,ud->wave_type);
+        qDebug()<<"udtype"<<ud->wave_type;
     data->insert(XL803::DCBias7,xl609->float_to_quint(ud->ratio));
 }
 void m_base_out::update_value(QModelIndex index,double value)
