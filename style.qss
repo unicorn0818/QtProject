@@ -1,0 +1,442 @@
+
+
+/**********子界面背景**********/
+QWidget#customWidget {
+        background: rgb(173, 202, 232);
+}
+
+/**********子界面中央背景**********/
+QWidget#centerWidget {
+        background: rgb(255, 246, 198);
+}
+/********QFrame*********/
+.QFrame{
+        border:2px solid rgb(99,184,255);
+}
+/**********主界面样式**********/
+QWidget#mainWindow {
+        border: 1px solid rgb(111, 156, 207);
+        background: rgb(255, 246, 198);
+}
+
+QWidget#messageWidget {
+        background: rgba(173, 202, 232, 50%);
+}
+
+QWidget#loadingWidget {
+        border: none;
+        border-radius: 5px;
+        background: rgb(187, 212, 238);
+}
+
+QWidget#remoteWidget {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border: 1px solid rgb(111, 156, 207);
+        border-left: none;
+        background: transparent;
+}
+
+
+
+QProgressIndicator {
+        qproperty-color: rgb(2, 65, 132);
+}
+
+/**********提示**********/
+QToolTip{
+        border: 1px solid rgb(111, 156, 207);
+        background: white;
+        color: rgb(51, 51, 51);
+}
+
+
+
+/**********分组框**********/
+QGroupBox {
+        font-size: 15px;
+        border: 1px solid rgb(111, 156, 207);
+        border-radius: 4px;
+        margin-top: 10px;
+}
+QGroupBox::title {
+        color: rgb(56, 99, 154);
+        top: -12px;
+        left: 10px;
+}
+
+/**********页签项**********/
+
+QTabWidget::pane {
+        border: none;
+
+        background: rgb(255,246,198);
+}
+QTabWidget::tab-bar {
+        border: none;
+}
+QTabBar::tab {
+        border: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        color: white;
+        background: rgb(255, 222, 141);
+        height: 28px;
+        min-width: 85px;
+        margin-right: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+}
+QTabBar::tab:hover {
+        background: rgb(255, 246, 198);
+}
+QTabBar::tab:selected {
+        color: white;
+        background: rgb(0, 78, 161);
+}
+
+QTabWidget#tabWidget::pane {
+        border: 1px solid rgb(111, 156, 207);
+        background: rgb(255, 246, 198);
+        margin-top: -1px;
+}
+
+QTabBar#tabBar::tab {
+        border: 1px solid rgb(111, 156, 207);
+        border-bottom: none;
+        color: rgb(70, 71, 73);
+        background: transparent;
+}
+QTabBar#tabBar::tab:hover {
+        color: rgb(2, 65, 132);
+}
+QTabBar#tabBar::tab:selected {
+        color: rgb(2, 65, 132);
+        background: rgb(255, 246, 198);
+}
+
+/**********表头**********/
+QHeaderView{
+        border: none;
+        border-bottom: 3px solid rgb(0, 78, 161);
+        background: transparent;
+        font-size: 15px;
+}
+QHeaderView::section:horizontal {
+        border: 1px solid rgb(111, 156, 207);
+        color: rgb(2, 65, 132);
+        background: transparent;
+}
+QHeaderView::section:horizontal:hover {
+        color: white;
+        background: rgb(0, 78, 161);
+}
+QHeaderView::section:horizontal:pressed {
+        color: white;
+        background: rgb(6, 94, 187);
+}
+QHeaderView::section:vertical {
+        border: 1px solid rgb(111, 156, 207);
+        color: rgb(2, 65, 132);
+        background: transparent;
+}
+QHeaderView::section:vertical:hover {
+        color: white;
+        background: rgb(0, 78, 161);
+}
+QHeaderView::section:vertical:pressed {
+        color: white;
+        background: rgb(6, 94, 187);
+}
+QTableCornerButton::section{
+        border: none;
+        color: rgb(2, 65, 132);
+        background: transparent;
+}
+
+QTreeView {
+    border: 1px solid rgb(111, 156, 207);
+    background: rgb(224, 238, 255);
+    gridline-color: rgb(111, 156, 207);
+    font-size: 15px;
+    show-decoration-selected: 1;
+}
+QTreeView::item:hover {
+    background: transparent;
+}
+QTreeView::item:selected{
+    background: #1E90FF;
+}
+QTreeView::branch {
+    background: transparent;
+}
+QTreeView::branch:hover {
+    background: transparent;
+}
+QTreeView::branch:selected {
+    background: #1E90FF;
+}
+
+QTreeView::branch:closed:has-children{
+    border-image: url(:/png/tree_1);
+}
+QTreeView::branch:open:has-children{
+    border-image: url(:/png/tree_2);
+}
+QListView::item{
+          height:20px;
+ }
+/**********表格**********/
+QTableView {
+        border: 1px solid rgb(111, 156, 207);
+        background: rgb(255, 246, 198);
+        gridline-color: rgb(111, 156, 207);
+        font-size: 15px;
+}
+QLabel{
+        font-size: 15px;
+}
+QTableView::item {
+        border: none;
+        background: transparent;
+        border-right: 1px solid rgb(111, 156, 207);
+        border-bottom: 1px solid rgb(111, 156, 207);
+}
+QTableView::item:selected {
+        background: rgba(132, 112, 255, 100);
+        color: rgb(46 ,139 ,87);
+}
+QTableView::item:selected:!active {
+        color: rgb(65, 65, 65);
+}
+
+
+/**********滚动条-水平**********/
+QScrollBar:horizontal {
+        height: 20px;
+        background: transparent;
+}
+QScrollBar::handle:horizontal {
+        height: 20px;
+        min-width: 30px;
+        background: rgb(170, 200, 230);
+        margin-left: 15px;
+        margin-right: 15px;
+}
+QScrollBar::handle:horizontal:hover {
+        background: rgb(165, 195, 225);
+}
+
+QScrollBar::add-page:horizontal,QScrollBar::sub-page:horizontal {
+        background: transparent;
+}
+
+/**********滚动条-垂直**********/
+QScrollBar:vertical {
+        background: transparent;
+}
+QScrollBar::handle:vertical {
+        width: 20px;
+        min-height: 30px;
+        background: rgb(170, 200, 230);
+        margin-top: 15px;
+        margin-bottom: 15px;
+}
+QScrollBar::handle:vertical:hover {
+        background: rgb(165, 195, 225);
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+        background: transparent;
+}
+
+/**********下拉列表**********/
+QComboBox {
+        font-size: 15px;
+}
+
+
+/**********复选框**********/
+
+
+QCheckBox{
+        spacing: 5px;
+}
+QCheckBox:enabled:checked{
+        color: rgb(2, 65, 132);
+}
+QCheckBox:enabled:!checked{
+        color: rgb(70, 71, 73);
+}
+QCheckBox:enabled:hover{
+        color: rgb(0, 78, 161);
+}
+QCheckBox:!enabled{
+        color: rgb(80, 80, 80);
+}
+QCheckBox::indicator {
+        width: 20px;
+        height: 20px;
+}
+QCheckBox::indicator:unchecked {
+        border-image:url(:./png/check1);
+}
+
+QCheckBox::indicator:checked {
+        border-image:url(:./png/check2);
+}
+
+
+/**********单选框**********/
+QRadioButton{
+        spacing: 5px;
+}
+QRadioButton:enabled:checked{
+        color: rgb(2, 65, 132);
+}
+QRadioButton:enabled:!checked{
+        color: rgb(70, 71, 73);
+}
+QRadioButton:enabled:hover{
+        color: rgb(0, 78, 161);
+}
+QRadioButton:!enabled{
+        color: rgb(80, 80, 80);
+}
+QRadioButton::indicator {
+        width: 20px;
+        height: 20px;
+}
+
+/**********输入框**********/
+QLineEdit {
+        border-radius: 4px;
+        height: 25px;
+        border: 1px solid rgb(111, 156, 207);
+        background: white;
+        font-size: 15px;
+}
+QLineEdit:enabled {
+        color: rgb(84, 84, 84);
+}
+QLineEdit:enabled:hover, QLineEdit:enabled:focus {
+        color: rgb(51, 51, 51);
+}
+QLineEdit:!enabled {
+        color: rgb(80, 80, 80);
+}
+
+/**********文本编辑框**********/
+QTextEdit {
+        border: 1px solid rgb(111, 156, 207);
+        color: rgb(70, 71, 73);
+        background: rgb(255, 246, 198);
+}
+
+/**********滚动区域**********/
+QScrollArea {
+        border: 1px solid rgb(111, 156, 207);
+        background: rgb(187, 212, 238);
+}
+
+/**********滚动区域**********/
+QWidget#transparentWidget {
+        background: transparent;
+}
+
+/**********微调器**********/
+
+
+
+/**********标签**********/
+
+QLabel#grayLabel {
+        color: rgb(70, 71, 73);
+}
+
+QLabel#highlightLabel {
+        color: rgb(2, 65, 132);
+}
+
+QLabel#redLabel {
+        color: red;
+}
+
+QLabel#grayYaHeiLabel {
+        color: rgb(175, 175, 175);
+        font-size: 16px;
+}
+
+QLabel#blueLabel {
+        color: rgb(0, 160, 230);
+}
+
+QLabel#listLabel {
+        color: rgb(51, 51, 51);
+}
+
+QLabel#lineBlueLabel {
+        background: rgb(0, 78, 161);
+}
+
+QLabel#graySeperateLabel {
+        background: rgb(200, 220, 230);
+}
+
+QLabel#seperateLabel {
+        background: rgb(112, 153, 194);
+}
+
+QLabel#radiusBlueLabel {
+        border-radius: 15px;
+        color: white;
+        font-size: 16px;
+        background: rgb(0, 78, 161);
+}
+
+QLabel#skinLabel[colorProperty="normal"] {
+        color: rgb(56, 99, 154);
+}
+QLabel#skinLabel[colorProperty="highlight"] {
+        color: rgb(0, 160, 230);
+}
+
+QLabel#groupLabel {
+        color: rgb(56, 99, 154);
+        border: 1px solid rgb(111, 156, 207);
+        font-size: 15px;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-left-color: transparent;
+}
+
+
+
+
+/**********按钮**********/
+QPushButton{
+        border-radius: 4px;
+        border: none;
+        width: 75px;
+        height: 25px;
+        font-size: 15px;
+}
+QPushButton:enabled {
+        background: rgb(255, 222, 141);
+        color: rgb(139, 90, 43);
+}
+QPushButton:!enabled {
+        background: rgb(180, 180, 180);
+        color: white;
+}
+QPushButton:enabled:hover{
+        background: rgb(100, 160, 220);
+}
+QPushButton:enabled:pressed{
+        background: rgb(0, 78, 161);
+}
+QPushButton:enabled:checked{
+        background: rgb(0, 78, 161);
+}
+
+
