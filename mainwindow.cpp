@@ -106,7 +106,8 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     p_config_set->m_connect();
     board->setFocusPolicy(Qt::NoFocus);
-    showFullScreen();
+    if(QApplication::desktop()->height()<=600&&QApplication::desktop()->width()<=800)
+        showFullScreen();
 
 }
 //void MainWindow::get_order(QStringList w,int ww)
