@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
@@ -40,6 +41,7 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QPushButton *load_file;
     QComboBox *comboBox;
+    QRadioButton *radioButton;
     QPushButton *file_path;
     QPushButton *check_data;
     QPushButton *resolution_ratio;
@@ -138,6 +140,11 @@ public:
         comboBox->setMinimumSize(QSize(0, 40));
 
         horizontalLayout_8->addWidget(comboBox);
+
+        radioButton = new QRadioButton(tab);
+        radioButton->setObjectName(QStringLiteral("radioButton"));
+
+        horizontalLayout_8->addWidget(radioButton);
 
         file_path = new QPushButton(tab);
         file_path->setObjectName(QStringLiteral("file_path"));
@@ -540,6 +547,7 @@ public:
          << QApplication::translate("MainWindow", "\345\245\227\351\244\220\345\256\236\346\224\266\350\241\250", 0)
          << QApplication::translate("MainWindow", "\344\273\230\346\254\276\345\256\236\346\224\266\350\241\250", 0)
         );
+        radioButton->setText(QApplication::translate("MainWindow", " \345\220\210\346\225\260\346\215\256", 0));
         file_path->setText(QApplication::translate("MainWindow", "\346\226\207\344\273\266\350\267\257\345\276\204", 0));
         check_data->setText(QApplication::translate("MainWindow", "\346\257\224\345\257\271", 0));
         resolution_ratio->setText(QApplication::translate("MainWindow", "\345\205\250\345\261\217", 0));

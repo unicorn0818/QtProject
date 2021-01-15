@@ -35,7 +35,7 @@ void MainWindow::initUI()
     ui->tableView_b->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->tableView_b_2->setModel(model_b_2);
     ui->tableView_b_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->textBrowser->setTextColor(Qt::red);
+    ui->textBrowser->setTextColor(Qt::black);
 }
 //获取文件的后缀名
 QString MainWindow::getFileSuffix(QString file_path)
@@ -48,6 +48,7 @@ void MainWindow::loadTable(int type, QString file_path)
     //汇总表xlsx
     if(type == 0)
     {
+        model_a->clear();
         table_name_a = file_path;
         QXlsx::Document xlsx(file_path);
         QXlsx::CellRange range;
@@ -59,6 +60,9 @@ void MainWindow::loadTable(int type, QString file_path)
         ui->all_index_a->setText(QString::number(page_range));
         xlsx_vector.clear();
         int coupon_col = 0,combo_col = 0,trading_col = 0,alipay_col = 0;
+        if(ui->radioButton->isChecked())
+            col -= 10;
+        qDebug()<<"col"<<col<<"rowCount"<<rowCount;
         for(int i=1;i<col;i++)
         {
             if(xlsx.cellAt(2,i)->value().toString()=="支付宝代金券")
@@ -73,7 +77,13 @@ void MainWindow::loadTable(int type, QString file_path)
         int num = 0,flag = 0;
         for(int i=3;i<rowCount;i++)
         {
-            for(int j=2;j<col;j++)
+            qApp->processEvents();
+            int x = 0;
+            if(ui->radioButton->isChecked())
+                x = 1;
+            else
+                x = 2;
+            for(int j=x;j<col;j++)
             {
                 if(j==trading_col)
                 {
@@ -85,10 +95,10 @@ void MainWindow::loadTable(int type, QString file_path)
                         if(xlsx_vector.at(k).at(2)==xlsx.cellAt(i,j)->value().toString())
                         {
                             QStringList list;
-                            list<<QString::number(xlsx_vector.at(k).at(0).toDouble()+xlsx.cellAt(i,combo_col)->value().toDouble())\
-                               <<QString::number(xlsx_vector.at(k).at(1).toDouble()+xlsx.cellAt(i,coupon_col)->value().toDouble())\
+                            list<<QString::number(xlsx_vector.at(k).at(0).toDouble()+xlsx.cellAt(i,combo_col)->value().toDouble(),'f',3)\
+                               <<QString::number(xlsx_vector.at(k).at(1).toDouble()+xlsx.cellAt(i,coupon_col)->value().toDouble(),'f',3)\
                               <<xlsx.cellAt(i,j)->value().toString()\
-                             <<QString::number(xlsx_vector.at(k).at(3).toDouble()+xlsx.cellAt(i,alipay_col)->value().toDouble());
+                             <<QString::number(xlsx_vector.at(k).at(3).toDouble()+xlsx.cellAt(i,alipay_col)->value().toDouble(),'f',3);
                             xlsx_vector.replace(k,list);
                             flag = 1;
                         }
@@ -113,10 +123,13 @@ void MainWindow::loadTable(int type, QString file_path)
                 }
             }
         }
+            ui->textBrowser->setTextColor(Qt::blue);
         ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":汇总表:"+file_path+"导入成功!");
     }//套餐实收表xls
     else if(type == 1)
     {
+        model_b->clear();
+        xlsx_vector.clear();
         table_name_b = file_path;
         QAxObject excel("Excel.Application");
         if(excel.isNull())
@@ -151,9 +164,10 @@ void MainWindow::loadTable(int type, QString file_path)
         cell = usedrange->dynamicCall("Value");
         qDebug()<<"read data cost:"<<timer.elapsed()<<"ms";timer.restart();
         QString opt_tmp;
+        earned_rates.clear();
         for(int i = 4;i<all_row-2;i++)
         {
-            opt_tmp = cell.toList().at(i).toList().at(9).toString();
+            qApp->processEvents();
             if(earned_rates.keys().contains(opt_tmp))
             {
                 earned_rates[opt_tmp] += cell.toList().at(i).toList().at(12).toDouble();
@@ -169,17 +183,20 @@ void MainWindow::loadTable(int type, QString file_path)
             times = earned_rates.count();
         for(int i=0;i<times;i++)
         {
+            qApp->processEvents();
             model_b->setItem(i,0,new QStandardItem(earned_rates.keys().at(i)));
-            model_b->setItem(i,1,new QStandardItem(QString::number(earned_rates.values().at(i))));
+            model_b->setItem(i,1,new QStandardItem(QString::number(earned_rates.values().at(i),'f',3)));
         }
         int page_range = ((earned_rates.count())%15)==0?((earned_rates.count())/15):earned_rates.count()/15+1;
         ui->all_index_b->setText(QString::number(page_range));
         ui->go_index_b->setRange(0,page_range);
+            ui->textBrowser->setTextColor(Qt::blue);
         ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":代金实收表:"+file_path+"导入成功!");
         //保存工作簿
         workbooks->dynamicCall("Close()");
         excel.dynamicCall("Quit()");
     }else if(type==2){
+        model_b_2->clear();
         table_name_b_2 = file_path;
         QAxObject excel("Excel.Application");
         if(excel.isNull())
@@ -211,12 +228,23 @@ void MainWindow::loadTable(int type, QString file_path)
         qDebug()<<"rows"<<all_row<<"colums"<<all_colum;
         cell = usedrange->dynamicCall("Value");
         QString opt_tmp;
+        earned_rates_2.clear();
+        int count_num = 0;
+        if(ui->radioButton->isChecked())
+            all_row += 2;
         for(int i = 4;i<all_row-2;i++)
         {
+            qApp->processEvents();
             opt_tmp = cell.toList().at(i).toList().at(22).toString();
             if(earned_rates_2.keys().contains(opt_tmp))
             {
                 earned_rates_2[opt_tmp] += cell.toList().at(i).toList().at(9).toDouble();
+//                if(opt_tmp == "东园店")
+//                {
+//                    ++count_num;
+//                    qDebug()<<cell.toList().at(i).toList().at(9).toDouble();
+//                    qDebug()<<earned_rates_2.value(opt_tmp)<<"count_num"<<count_num;
+//                }
             }
             else
                 earned_rates_2.insert(cell.toList().at(i).toList().at(22).toString(),\
@@ -229,17 +257,26 @@ void MainWindow::loadTable(int type, QString file_path)
             times = earned_rates_2.count();
         for(int i=0;i<times;i++)
         {
+            qApp->processEvents();
             model_b_2->setItem(i,0,new QStandardItem(earned_rates_2.keys().at(i)));
-            model_b_2->setItem(i,1,new QStandardItem(QString::number(earned_rates_2.values().at(i))));
+            model_b_2->setItem(i,1,new QStandardItem(QString::number(earned_rates_2.values().at(i),'f',3)));
         }
         int page_range = ((earned_rates_2.count())%15)==0?((earned_rates_2.count())/15):earned_rates_2.count()/15+1;
         ui->all_index_b_2->setText(QString::number(page_range));
         ui->go_index_b_2->setRange(0,page_range);
+            ui->textBrowser->setTextColor(Qt::blue);
         ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":付款实收表:"+file_path+"导入成功!");
         //保存工作簿
         workbooks->dynamicCall("Close()");
         excel.dynamicCall("Quit()");
     }
+    QStringList label;
+    label<<"交易门店"<<"支付宝套餐"<<"支付宝代金券"<<"支付宝付款";
+    model_a->setHorizontalHeaderLabels(label);
+    label.clear();
+    label<<"操作员"<<"商家实收";
+    model_b->setHorizontalHeaderLabels(label);
+    model_b_2->setHorizontalHeaderLabels(label);
 }
 
 void MainWindow::on_resolution_ratio_clicked()
@@ -263,7 +300,7 @@ void MainWindow::on_quit_system_clicked()
 void MainWindow::on_load_file_clicked()
 {
     QSettings *setting = new QSettings("./config.ini", QSettings::IniFormat);
-    QString file_name = QFileDialog::getOpenFileName(NULL,"选择文件",setting->value("openpath").toString(),"*.*");
+    QString file_name = QFileDialog::getOpenFileName(NULL,"选择文件",setting->value("openpath").toString(),"*.xlsx *.xls");
     if(file_name.isEmpty())
         return;
     if("xlsx"==getFileSuffix(file_name)&&ui->comboBox->currentText()=="汇总表")
@@ -280,9 +317,15 @@ void MainWindow::on_load_file_clicked()
 void MainWindow::on_file_path_clicked()
 {
     if(ui->comboBox->currentText()=="汇总表"&&!table_name_a.isEmpty())
+    {
+        ui->textBrowser->setTextColor(Qt::blue);
         ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":当前导入汇总表的路径为:"+table_name_a);
+    }
     else if(!table_name_b.isEmpty())
+    {
+        ui->textBrowser->setTextColor(Qt::blue);
         ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":当前导入实收表的路径为:"+table_name_b);
+    }
     else
         return ;
 }
@@ -347,11 +390,10 @@ void MainWindow::on_go_index_b_editingFinished()
     ui->now_index_b->setText(QString::number(go_index));
     for(int i=0;i<15;i++)
     {
-
         if((go_index-1)*15+i<earned_rates.count())
         {
             model_b->item(i,0)->setText(earned_rates.keys().at((go_index-1)*15+i));
-            model_b->item(i,1)->setText(QString::number(earned_rates.values().at((go_index-1)*15+i)));
+            model_b->item(i,1)->setText(QString::number(earned_rates.values().at((go_index-1)*15+i),'f',3));
         }
         else
         {
@@ -377,6 +419,8 @@ void MainWindow::on_check_data_clicked()
 {
     if(table_name_a.isEmpty())
         return ;
+    ui->textBrowser->clear();
+    ui->textBrowser->setTextColor(Qt::blue);
     ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":开始比对");
     if(ui->comboBox->currentText()=="套餐实收表")
     {
@@ -385,7 +429,7 @@ void MainWindow::on_check_data_clicked()
         for(int i=0;i<earned_rates.count();i++)
         {
             QString check_str = earned_rates.keys().at(i);
-            QString value = QString::number(earned_rates.values().at(i));
+            QString value = QString::number(earned_rates.values().at(i),'f',3);
             check_str = check_str.remove("店");
             //广州
             if(check_str=="合一国际")
@@ -415,16 +459,18 @@ void MainWindow::on_check_data_clicked()
             {
                 if(xlsx_vector.at(j).at(2).contains(check_str))
                 {
-                    if((xlsx_vector.at(j).at(1).toDouble()+xlsx_vector.at(j).at(0).toDouble()!=value.toDouble()))
+                    if(fabs(xlsx_vector.at(j).at(1).toDouble()+xlsx_vector.at(j).at(0).toDouble()-value.toDouble())>0.01)
                     {
+                        ui->textBrowser->setTextColor(Qt::red);
                         ui->textBrowser->append("实收项与汇总项不匹配!");
                         ui->textBrowser->append("汇总表门店信息:"+xlsx_vector.at(j).at(2)+"代金券+支付宝套餐:"+QString::number(xlsx_vector.at(j).at(1).toDouble()+xlsx_vector.at(j).at(0).toDouble()));
                         ui->textBrowser->append("实收项门店信息:"+check_str+"实收款:"+value);
                         false_count++;
                     }else{
-//                        ui->textBrowser->append("实收项与汇总项匹配!");
-//                        ui->textBrowser->append("汇总表门店信息:"+xlsx_vector.at(j).at(2)+"代金券+支付宝套餐:"+QString::number(xlsx_vector.at(j).at(1).toDouble()+xlsx_vector.at(j).at(0).toDouble()));
-//                        ui->textBrowser->append("实收项门店信息:"+check_str+"实收款:"+value);
+                        ui->textBrowser->setTextColor(Qt::black);
+                        ui->textBrowser->append("实收项与汇总项匹配!");
+                        ui->textBrowser->append("汇总表门店信息:"+xlsx_vector.at(j).at(2)+"代金券+支付宝套餐:"+QString::number(xlsx_vector.at(j).at(1).toDouble()+xlsx_vector.at(j).at(0).toDouble()));
+                        ui->textBrowser->append("实收项门店信息:"+check_str+"实收款:"+value);
                         true_count++;
                     }
                 }
@@ -433,11 +479,11 @@ void MainWindow::on_check_data_clicked()
         ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":正确数:"+QString::number(true_count)+"错误数:"+QString::number(false_count));
     }else if(ui->comboBox->currentText()=="付款实收表"){
         ui->tabWidget_2->setCurrentIndex(1);
-        int true_count = 0,false_count = 0;
+        int true_count_2 = 0,false_count_2 = 0;
         for(int i=0;i<earned_rates_2.count();i++)
         {
             QString check_str = earned_rates_2.keys().at(i);
-            QString value = QString::number(earned_rates_2.values().at(i));
+            QString value = QString::number(earned_rates_2.values().at(i),'f',3);
             check_str = check_str.remove("店");
             //广州
             if(check_str=="广州中铁诺德")
@@ -466,31 +512,43 @@ void MainWindow::on_check_data_clicked()
                 check_str="深圳壹方城";
             else if(check_str=="香格里分")
                 check_str="深圳观澜香格里";
+            else if(check_str=="新洲二")
+                check_str = "深圳新洲二店";
+            else if(check_str=="新洲")
+                check_str = "深圳新洲店";
+            else if(check_str=="龙华硅谷")
+                check_str = "深圳龙华硅谷";
+            else if(check_str=="龙华")
+                check_str = "深圳龙华店";
             //上海
             else if(check_str=="上海五角场店万达")
                 check_str="上海五角场";
             else if(check_str=="打浦桥日月光")
                 check_str="上海日月光";
-            for(int j =0 ;j<xlsx_vector.count();j++)
+            for(int j =0;j<xlsx_vector.count();j++)
             {
                 if(xlsx_vector.at(j).at(2).contains(check_str))
                 {
-                    if((xlsx_vector.at(j).at(3).toDouble()!=value.toDouble()))
+                    if(fabs(xlsx_vector.at(j).at(3).toDouble()-value.toDouble())>0.01)
+//                    if((xlsx_vector.at(j).at(3).toDouble()!=value.toDouble()))
                     {
+                        ui->textBrowser->setTextColor(Qt::red);
                         ui->textBrowser->append("实收项与汇总项不匹配!");
+                        ui->textBrowser->append("差值:"+QString::number(fabs(xlsx_vector.at(j).at(3).toDouble()-value.toDouble())));
                         ui->textBrowser->append("汇总表门店信息:"+xlsx_vector.at(j).at(2)+"支付宝付款:"+QString::number(xlsx_vector.at(j).at(3).toDouble()));
                         ui->textBrowser->append("实收项门店信息:"+check_str+"实收款:"+value);
-                        false_count++;
+                        false_count_2++;
                     }else{
-//                        ui->textBrowser->append("实收项与汇总项匹配!");
-//                        ui->textBrowser->append("汇总表门店信息:"+xlsx_vector.at(j).at(2)+"支付宝付款:"+QString::number(xlsx_vector.at(j).at(3).toDouble()));
-//                        ui->textBrowser->append("实收项门店信息:"+check_str+"实收款:"+value);
-                        true_count++;
+                        ui->textBrowser->setTextColor(Qt::black);
+                        ui->textBrowser->append("实收项与汇总项匹配!");
+                        ui->textBrowser->append("汇总表门店信息:"+xlsx_vector.at(j).at(2)+"支付宝付款:"+QString::number(xlsx_vector.at(j).at(3).toDouble()));
+                        ui->textBrowser->append("实收项门店信息:"+check_str+"实收款:"+value);
+                        true_count_2++;
                     }
                 }
             }
         }
-        ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":正确数:"+QString::number(true_count)+"错误数:"+QString::number(false_count));
+        ui->textBrowser->append(QTime::currentTime().toString("hh:mm:ss")+":正确数:"+QString::number(true_count_2)+"错误数:"+QString::number(false_count_2));
     }
 }
 

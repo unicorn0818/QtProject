@@ -99,6 +99,13 @@
            </widget>
           </item>
           <item>
+           <widget class="QRadioButton" name="radioButton">
+            <property name="text">
+             <string> 合数据</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="file_path">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
