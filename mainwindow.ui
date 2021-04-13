@@ -1,0 +1,1021 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1050</width>
+    <height>680</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="styleSheet">
+       <string notr="true">QTabBar::tab{width:200}
+QTabBar::tab{height:60}
+
+
+</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>基本误差</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_2">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="update_ora">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>125</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>上传</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="config_set">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>125</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>数据库配置</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6">
+           <property name="horizontalSpacing">
+            <number>6</number>
+           </property>
+           <item row="1" column="0">
+            <widget class="QListWidget" name="listWidget">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(224, 238, 255);</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(120, 170, 220);
+font: 12pt &quot;Agency FB&quot;;
+</string>
+             </property>
+             <property name="text">
+              <string>条形码</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" rowspan="2">
+            <widget class="QTabWidget" name="tabWidget_2">
+             <property name="styleSheet">
+              <string notr="true">QTabBar::tab{width:150}
+QTabBar::tab{height:30}</string>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab_3">
+              <attribute name="title">
+               <string>工频误差试验</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_2">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableWidget" name="tableWidget">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>检定任务单编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>互感器条码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定线写入时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理标记</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>负荷标志</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>额定电流百分值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>比差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>角差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>比差修约值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>角差修约值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>序号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>电流变比</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>系统编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定线台编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定单元编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>表位编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定点序号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>有效标志</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>功率因数</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>结论</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>相别</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>升降标识</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>误差类型</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_4">
+              <attribute name="title">
+               <string>叠加电流检定误差</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_4">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableWidget" name="tableWidget_2">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>检定任务单编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>互感器条码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定线写入时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理标记</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>负荷标志</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>额定电流百分值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>比差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>角差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>比差修约值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>角差修约值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>序号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>电流变比</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>系统编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定线台编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定单元编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>表位编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定点序号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>有效标志</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>功率因数</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>结论</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>相别</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>升降标识</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>误差类型</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_5">
+              <attribute name="title">
+               <string>正弦半波检定误差</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_3">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableWidget" name="tableWidget_3">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>检定任务单编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>互感器条码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定线写入时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理标记</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>负荷标志</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>额定电流百分值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>比差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>角差</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>比差修约值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>角差修约值</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>序号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>电流变比</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>系统编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定线台编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定单元编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>表位编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定点序号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>有效标志</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>功率因数</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>结论</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>相别</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>升降标识</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>误差类型</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>基础信息</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_3">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_12">
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Agency FB&quot;;</string>
+               </property>
+               <property name="text">
+                <string>检定任务单编号：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="task_no">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Agency FB&quot;;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="jointA_1">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>125</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>查找</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="styleSheet">
+                <string notr="true">font: 12pt &quot;Agency FB&quot;;</string>
+               </property>
+               <property name="text">
+                <string> 条形码：</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="barCode">
+               <property name="minimumSize">
+                <size>
+                 <width>125</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="bindInfo">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>125</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>绑定</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="1">
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>432</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QFrame" name="frame_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
+            <widget class="QTabWidget" name="tabWidget_3">
+             <property name="styleSheet">
+              <string notr="true">QTabBar::tab{width:150}
+QTabBar::tab{height:30}</string>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <widget class="QWidget" name="tab_7">
+              <attribute name="title">
+               <string>检定任务</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_11">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableWidget" name="tableWidget_6">
+                 <column>
+                  <property name="text">
+                   <string>检定任务单编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>任务优先级</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定方式</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>系统编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>到货批次号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>设备类别</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>设备型号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>物料号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检定方案标识</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>复检方案标识</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>是否复检</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>复检数量</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>设备数量</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>垛总数</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>检验人</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>核验人</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>是否自动施封</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>任务状态</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>平台写入时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理标记</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>新设备码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>变更参数类型</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="tab_6">
+              <attribute name="title">
+               <string>出库明细</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_10">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QTableWidget" name="tableWidget_5">
+                 <column>
+                  <property name="text">
+                   <string>检定任务单编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>系统编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>用表申请任务编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>到货批次号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>设备类别</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>设备条形码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>箱条形码</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>垛号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>抽检复检标识</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>站台号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>人员编号</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>台体类型</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>平台写入时间</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理标记</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>处理时间</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
